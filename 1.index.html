@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed | Graphic Designer & Agency Founder</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="1.css/style.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    section, footer { scroll-margin-top: 30px; }
+
+    .testimonials-section {
+      padding: 90px 0;
+      background: #f7f6f2;
+      color: #171717;
+    }
+
+    .testimonials-section .section-heading {
+      margin-bottom: 38px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      height: 100%;
+      padding: 30px;
+      background: #fff;
+      border: 1px solid #e9e6df;
+      border-radius: 16px;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    }
+
+    .testimonial-stars {
+      color: #d65a38;
+      letter-spacing: 4px;
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-quote {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 25px;
+    }
+
+    .testimonial-person {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      border-top: 1px solid #eee;
+      padding-top: 18px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #d65a38;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .testimonial-person h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .testimonial-person span {
+      color: #888;
+      font-size: 12px;
+    }
+
+    .sample-note {
+      color: #777;
+      font-size: 12px;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .image-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.92);
+      justify-content: center;
+      align-items: center;
+      padding: 55px 20px 20px;
+    }
+
+    .image-lightbox.show { display: flex; }
+
+    .image-lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      animation: imageZoom .25s ease;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      border: 0;
+      background: transparent;
+      color: white;
+      font-size: 42px;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover { color: #d65a38; }
+
+    .project-card .project-image img,
+    .about-photo img { cursor: zoom-in; }
+
+    @keyframes imageZoom {
+      from { transform: scale(.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 767px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials-section { padding: 60px 0; }
+      .testimonial-card { padding: 24px; }
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 576px) {
+      .image-lightbox img { max-width: 96%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .image-lightbox img { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg portfolio-nav">
+    <div class="container">
+      <a class="navbar-brand" href="#home">ZyraStudio<span>.</span></a>
+
+      <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#work">My Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="nav-contact" href="#contact">Let's Talk <i class="bi bi-arrow-up-right"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 hero-content">
+          <p class="hero-label"><span></span> GRAPHIC DESIGNER &amp; AGENCY FOUNDER</p>
+          <h1>I DESIGN BRANDS THAT <span>GET REMEMBERED.</span></h1>
+          <p class="hero-description">
+            Hi, I'm Ahmed. I create meaningful visual identities, distinctive
+            brand systems and creative designs that help businesses stand out.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#work" class="btn-main">Explore My Work <i class="bi bi-arrow-up-right"></i></a>
+            <a href="#contact" class="btn-secondary">Let's Collaborate</a>
+          </div>
+
+          <div class="hero-experience">
+            <h3>2.5+</h3>
+            <p>Years of creative experience</p>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-art">
+            <div class="art-circle"></div>
+            <div class="art-card">
+              <span class="art-small">CREATIVE MINDSET</span>
+              <h2>Ideas into<br>IDENTITY<span>.</span></h2>
+              <div class="art-line"></div>
+              <p>DESIGN · STRATEGY · IMPACT</p>
+            </div>
+            <div class="art-sticker">DESIGN<br>WITH<br>PURPOSE</div>
+            <span class="art-number">01 / 05</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="work-section" id="work">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-label">SELECTED WORK</p>
+        <h2>A collection of ideas, <span>crafted with purpose.</span></h2>
+        <p>A selection of branding, identity and visual design projects created to make brands memorable.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/aura.jpg" alt="AURA Coffee brand identity" loading="lazy"><span>01</span></div>
+            <div class="project-info"><div><h3>AURA Coffee</h3><p>Brand Identity</p></div><a href="#contact"><i class="bi bi-arrow-up-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/nova.jpg" alt="NOVA Clothing branding" loading="lazy"><span>02</span></div>
+            <div class="project-info"><div><h3>NOVA Clothing</h3><p>Branding &amp; Social Media</p></div><a href="#contact"><i class="bi bi-arrow-up-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/lumen.jpg" alt="LUMEN Studio visual identity" loading="lazy"><span>03</span></div>
+            <div class="project-info"><div><h3>LUMEN Studio</h3><p>Visual Identity</p></div><a href="#contact"><i class="bi bi-arrow-up-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/orbit.jpg" alt="ORBIT Tech branding" loading="lazy"><span>04</span></div>
+            <div class="project-info"><div><h3>ORBIT Tech</h3><p>Logo &amp; Corporate Branding</p></div><a href="#contact"><i class="bi bi-arrow-up-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/mira.jpg" alt="MIRA Skincare packaging" loading="lazy"><span>05</span></div>
+            <div class="project-info"><div><h3>MIRA Skincare</h3><p>Packaging &amp; Social Media</p></div><a href="#contact"><i class="bi bi-arrow-up-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/vanta.jpg" alt="VANTA Restaurant branding" loading="lazy"><span>06</span></div>
+            <div class="project-info"><div><h3>VANTA Restaurant</h3><p>Print &amp; Promotional Design</p></div><a href="#contact"><i class="bi bi-arrow-up-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/gaming-poster.jpg" alt="Gaming tournament poster" loading="lazy"><span>07</span></div>
+            <div class="project-info"><div><h3>Gaming Tournament</h3><p>Gaming Poster Design</p></div></div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/burger-poster.jpg" alt="Burger promotional poster" loading="lazy"><span>08</span></div>
+            <div class="project-info"><div><h3>Chopify Burger</h3><p>Food Promotion Design</p></div></div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/apartment-poster.jpg" alt="Luxury apartments poster" loading="lazy"><span>09</span></div>
+            <div class="project-info"><div><h3>Luxury Apartments</h3><p>Real Estate Poster</p></div></div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="project-card">
+            <div class="project-image"><img src="3.images/fitness-poster.jpg" alt="Fitness promotional poster" loading="lazy"><span>10</span></div>
+            <div class="project-info"><div><h3>Power Fitness</h3><p>Fitness Social Media Design</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-4 col-md-5">
+          <div class="about-photo"><img src="3.images/ahmed.jpg" alt="Ahmed, graphic designer" loading="lazy"></div>
+        </div>
+
+        <div class="col-lg-8 col-md-7">
+          <p class="section-label">ABOUT AHMED</p>
+          <h2>Turning ideas into <span>visual identities.</span></h2>
+          <p class="about-text">Hi, I'm Ahmed, a passionate Graphic Designer and Agency Founder with over 2.5 years of experience in the creative industry.</p>
+          <p class="about-text">I specialize in crafting powerful visual identities and modern design solutions that help brands stand out. I turn creative ideas into memorable designs that connect with people.</p>
+
+          <div class="about-stats">
+            <div><h3>2.5+</h3><p>Years Experience</p></div>
+            <div><h3>Creative</h3><p>Design Approach</p></div>
+            <div><h3>100%</h3><p>Creative Focus</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="services-heading">
+        <p class="section-label">WHAT I DO</p>
+        <h2>Creative services built <span>for ambitious brands.</span></h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4"><div class="service-card"><span>01</span><i class="bi bi-bezier2"></i><h3>Logo Design</h3><p>Distinctive logos designed to give brands a memorable visual signature.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="service-card"><span>02</span><i class="bi bi-palette"></i><h3>Brand Identity</h3><p>Complete visual systems including typography, colors and brand direction.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="service-card"><span>03</span><i class="bi bi-instagram"></i><h3>Social Media</h3><p>Modern social media designs that keep brands visually consistent and engaging.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="service-card"><span>04</span><i class="bi bi-printer"></i><h3>Print Media</h3><p>Professional brochures, posters, flyers and other print-ready designs.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="service-card"><span>05</span><i class="bi bi-box-seam"></i><h3>Packaging Design</h3><p>Packaging concepts that combine strong aesthetics with clear communication.</p></div></div>
+        <div class="col-md-6 col-lg-4"><div class="service-card"><span>06</span><i class="bi bi-grid-1x2"></i><h3>Stationery &amp; Identity</h3><p>Business cards, letterheads and supporting brand materials for a complete identity.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-heading text-center">
+        <p class="section-label">KIND WORDS</p>
+        <h2>What People <span>Say</span></h2>
+        <p>Example testimonials for this portfolio design.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-quote">“The design feels clean, modern, and professional. The attention to detail really makes the work stand out.”</p>
+          <div class="testimonial-person"><div class="testimonial-avatar">A</div><div><h3>Alex Morgan</h3><span>Sample testimonial</span></div></div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-quote">“The layout is easy to follow, and the visual style feels polished, creative, and consistent throughout.”</p>
+          <div class="testimonial-person"><div class="testimonial-avatar">S</div><div><h3>Sophia Lee</h3><span>Sample testimonial</span></div></div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="testimonial-quote">“A stylish presentation with a great balance of colors, typography, and visual elements.”</p>
+          <div class="testimonial-person"><div class="testimonial-avatar">D</div><div><h3>Daniel Carter</h3><span>Sample testimonial</span></div></div>
+        </article>
+      </div>
+
+      <p class="sample-note">These are illustrative sample reviews, not verified customer feedback.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <footer class="portfolio-footer" id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <p class="section-label">HAVE A PROJECT IN MIND?</p>
+        <h2>Let's create something <span>meaningful.</span></h2>
+        <p class="footer-description">Have an idea? Let's turn it into a memorable visual experience for your brand.</p>
+        <a href="mailto:zyrastudio859@gmail.com" class="footer-cta">Let's Talk <i class="bi bi-arrow-up-right"></i></a>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="row gy-4 footer-middle">
+        <div class="col-lg-4 col-md-6">
+          <a href="#home" class="footer-brand">ZyraStudio<span>.</span></a>
+          <p class="footer-bio">Graphic Designer &amp; Agency Founder creating bold identities and meaningful visual experiences.</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h3 class="footer-heading">QUICK LINKS</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">My Work</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-5 col-md-12">
+          <h3 class="footer-heading">GET IN TOUCH</h3>
+          <ul class="footer-links footer-contact">
+            <li><i class="bi bi-envelope"></i><a href="mailto:zyrastudio859@gmail.com">zyrastudio859@gmail.com</a></li>
+            <li><i class="bi bi-whatsapp"></i><a href="https://wa.me/923702088232" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></li>
+            <li><i class="bi bi-instagram"></i><a href="https://instagram.com/ahmed.xdesigns" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><i class="bi bi-linkedin"></i><a href="https://www.linkedin.com/in/ahmed-qureshi-71b07a441/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Ahmed. All rights reserved.</p>
+        <a href="#home" class="back-to-top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div class="image-lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Enlarged project image">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image popup">&times;</button>
+    <img id="lightboxImage" src="" alt="Enlarged project image">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="2.js/sscript.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const lightbox = document.getElementById("imageLightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const closeButton = document.getElementById("lightboxClose");
+      const images = document.querySelectorAll(".project-card .project-image img, .about-photo img");
+
+      images.forEach(function (img) {
+        img.addEventListener("click", function () {
+          lightboxImage.src = img.src;
+          lightboxImage.alt = img.alt || "Enlarged project image";
+          lightbox.classList.add("show");
+          document.body.style.overflow = "hidden";
+          closeButton.focus();
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("show");
+        document.body.style.overflow = "";
+      }
+
+      closeButton.addEventListener("click", closeLightbox);
+
+      lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeLightbox();
+      });
+    });
+  </script>
+</body>
+</html>
